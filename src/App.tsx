@@ -3,17 +3,34 @@ import { useState } from "react";
 import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
 
 // ----------------------
 // Navbar Component
 // ----------------------
 function Navbar() {
   return (
-    <nav className="p-4 border-b flex gap-4 bg-white shadow place-content-between">
-      <Link to="/" className="text-blue-600 hover:underline">Home</Link>
-      <Link to="/about" className="text-blue-600 hover:underline">About</Link>
-      <Link to="/example" className="text-blue-600 hover:underline">Example</Link>
-    </nav>
+    <NavigationMenu className="p-4 border-b bg-white shadow w-full">
+      <NavigationMenuList className="flex gap-4">
+        <NavigationMenuItem>
+          <Link to="/">
+            <NavigationMenuLink className="text-blue-600 hover:underline">Home</NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/about">
+            <NavigationMenuLink className="text-blue-600 hover:underline">About</NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link to="/example">
+            <NavigationMenuLink className="text-blue-600 hover:underline">Example</NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
 }
 
@@ -34,11 +51,9 @@ function Home() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+          <Button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </Button>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
@@ -51,8 +66,11 @@ function Home() {
 // ----------------------
 function About() {
   return (
-    <div className="p-6 text-xl">
-      📄 This is the About Page (You can add more here)
+    <div className="p-6">
+      <h2 className="text-2xl font-semibold mb-4">About</h2>
+      <p className="text-xl">
+        📄 This is the About Page (You can add more here)
+      </p>
     </div>
   );
 }
@@ -62,9 +80,14 @@ function About() {
 // ----------------------
 function NotFound() {
   return (
-    <div className="p-6 text-xl text-red-600">
-      404 - Page Not Found
-    </div>
+    <Card className="m-6 border-red-300">
+      <CardHeader>
+        <CardTitle className="text-red-600">Error</CardTitle>
+      </CardHeader>
+      <CardContent className="text-xl text-red-600">
+        404 - Page Not Found
+      </CardContent>
+    </Card>
   );
 }
 
