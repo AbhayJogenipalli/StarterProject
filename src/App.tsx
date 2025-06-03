@@ -1,9 +1,9 @@
 import { Routes, Route, Link } from "react-router-dom";
-// import { useState } from "react";
-// import reactLogo from "@/assets/react.svg";
-// import viteLogo from "/vite.svg";
+import { useState } from "react";
+import reactLogo from "@/assets/react.svg";
+import viteLogo from "/vite.svg";
 import "./App.css";
-// import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
 
@@ -38,27 +38,26 @@ function Navbar() {
 // Home Page Component
 // ----------------------
 function Home() {
-  // const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   return (
-    <></>
-    // <>
-    //   <div className="flex justify-center items-center gap-8 pt-12 mx-auto">
-    //     <a href="https://vite.dev" target="_blank">
-    //       <img src={viteLogo} className="logo" alt="Vite logo" />
-    //     </a>
-    //     <a href="https://react.dev" target="_blank">
-    //       <img src={reactLogo} className="logo react" alt="React logo" />
-    //     </a>
-    //   </div>
-    //   <h1>Vite + React</h1>
-    //       <Button onClick={() => setCount((count) => count + 1)}>
-    //         count is {count}
-    //       </Button>
-    //   <p className="read-the-docs">
-    //     Click on the Vite and React logos to learn more
-    //   </p>
-    // </>
+    <>
+      <div className="flex justify-center items-center gap-8 pt-12 mx-auto">
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+          <Button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </Button>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   );
 }
 
